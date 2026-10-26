@@ -95,6 +95,16 @@
       var cls = s.tag === "ruta" ? "tag-ruta" : (s.tag === "hoy" ? "tag-hoy" : "tag-hoy tag-star");
       g.appendChild(el("article", { class: "card" }, [el("span", { class: "tag " + cls, text: J.tags[s.tag] }), el("h3", { text: x.h }), el("p", { text: x.p })]));
     });
+    $("#compareTitle").textContent = J.compareTitle;
+    var cmp = $("#compare"); clear(cmp);
+    cmp.appendChild(el("div", { class: "crow2 head", role: "row" }, [el("span", { role: "columnheader", text: J.compare.before }), el("span", { role: "columnheader", text: J.compare.after })]));
+    J.compare.rows.forEach(function (r) { cmp.appendChild(el("div", { class: "crow2", role: "row" }, [el("span", { class: "before", role: "cell", text: r[0] }), el("span", { class: "after", role: "cell", text: r[1] })])); });
+    $("#guardsTitle").textContent = J.guardsTitle;
+    var gg = $("#guardGrid"); clear(gg);
+    window.DATA.guards.forEach(function (s) {
+      var x = J.guards[s.id];
+      gg.appendChild(el("article", { class: "card" }, [el("span", { class: "tag " + (s.tag === "ruta" ? "tag-ruta" : "tag-hoy"), text: J.tags[s.tag] }), el("h3", { text: x.h }), el("p", { text: x.p })]));
+    });
   }
 
   /* ── panel y colores ────────────────────────────────────── */
@@ -209,8 +219,6 @@
 
   function renderLinks() {
     var d = window.DATA;
-    var map = { "#mailLink": "mailto:" + d.email, "#inLink": d.linkedin, "#ghLink": d.github };
-    Object.keys(map).forEach(function (sel) { var n = $(sel); if (n) n.href = map[sel]; });
     $("#mailText").textContent = d.email;
   }
 

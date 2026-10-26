@@ -1,22 +1,26 @@
-/* Datos fijos y textos del sitio, en español e inglés. Todo lo que aparece en pantallas de ejemplo son datos FICTICIOS. */
+/* Datos fijos y textos del sitio, en español e inglés. Todo lo que aparece en pantallas de ejemplo son datos FICTICIOS.
+   Las cifras de ahorro de tiempo o de preferencia de las personas NO figuran: no se midieron. */
 window.DATA = {
-  email: "caricariluna@gmail.com",
-  linkedin: "https://www.linkedin.com/in/carina-alejandra-luna",
-  github: "https://github.com/xandcari",
+  email: "contacto@ejemplo.com",   // dato genérico de ejemplo: reemplazar por el de contacto real antes de usarlo con clientes
   stats: [
-    { id: "tests", n: 788 },
+    { id: "tests", n: 807 },
     { id: "groups", n: 4 },
     { id: "roles", n: 3 },
     { id: "real", n: 0 }
   ],
-  /* "hoy" = funciona y está probado · "hoy*" = funciona en el canal de prueba · "ruta" = todavía no existe */
+  /* "hoy" = funciona y está probado · "hoy*" = funciona en el canal de prueba, con salvedades · "ruta" = todavía no existe */
   steps: [
-    { id: "vacancy", tag: "hoy" },
+    { id: "link", tag: "hoy" },
     { id: "chat", tag: "hoy*" },
-    { id: "cv", tag: "hoy*" },
-    { id: "score", tag: "hoy" },
-    { id: "client", tag: "hoy" },
-    { id: "agenda", tag: "hoy*" }
+    { id: "filter", tag: "hoy" },
+    { id: "ranking", tag: "hoy" },
+    { id: "agenda", tag: "hoy*" },
+    { id: "interview", tag: "hoy" }
+  ],
+  guards: [
+    { id: "scope", tag: "hoy" },
+    { id: "cv", tag: "hoy" },
+    { id: "cost", tag: "ruta" }
   ],
   groups: ["ok", "rev", "pen", "no"],
   phases: [
@@ -31,8 +35,8 @@ window.T = {};
 /* ═════════════════════════════ ESPAÑOL ═════════════════════════════ */
 window.T.es = {
   meta: {
-    title: "Reclutamiento IA — selección ágil, explicable y humana",
-    desc: "Postulación por chat, evaluación explicable, informes para el cliente y agenda de entrevistas para gastronomía, hotelería y turismo."
+    title: "Nira — reclutamiento con chatbot: la IA asiste, las decisiones son de personas",
+    desc: "Nira: plataforma de reclutamiento con chatbot para consultoras de RR. HH., reclutadores y PyMEs. Preselección de perfiles, ranking explicable y agenda de entrevistas."
   },
   ui: {
     skip: "Ir al contenido", menu: "Menú", lang: "Idioma", theme: "Tema", copy: "Copiar", copied: "¡Copiado!", top: "Volver arriba",
@@ -43,8 +47,8 @@ window.T.es = {
   hero: {
     badge: "Presentación del producto · en desarrollo",
     kicker: "Presentamos",
-    role: "Selección ágil, explicable y humana",
-    tagline: "Plataforma para consultoras y empresas de gastronomía, hotelería y turismo: postulación por chat, evaluación explicable y entrevistas sin dobles reservas. La IA asiste; las decisiones son de personas.",
+    role: "Agilidad, inteligencia, cercanía y eficiencia",
+    tagline: "Plataforma de reclutamiento con chatbot para consultoras de RR. HH., reclutadores independientes y PyMEs: la persona se postula por chat, Nira ordena y explica el ranking, y la agenda de entrevistas se coordina sola. La IA asiste; las decisiones son de personas.",
     cta1: "Ver el recorrido", cta2: "Hablemos"
   },
   stats: {
@@ -54,31 +58,47 @@ window.T.es = {
     real: "mensajes reales enviados: todo corre en un canal de prueba"
   },
   journey: {
-    title: "De la vacante a la entrevista",
-    intro: "Un recorrido completo, pensado para contratar personal de temporada sin perder el orden ni la trazabilidad.",
-    problemTitle: "El problema",
+    title: "Del caos de postulaciones a la entrevista que vale",
+    intro: "El primer módulo es la preselección de perfiles: Nira atiende a cada postulante, ordena la información y te entrega un ranking para que entrevistes solo a quienes corresponde.",
+    problemTitle: "El desafío",
     problems: [
-      { h: "Postulaciones sin orden", p: "Mensajes sueltos, CV por distintos medios y respuestas que hay que preguntar de a una." },
-      { h: "Criterios poco claros", p: "Cuesta explicar por qué una persona avanzó y otra no, ante el cliente o ante la propia persona." },
-      { h: "Entrevistas coordinadas a mano", p: "Horarios cruzados, turnos duplicados, olvidos y cancelaciones de último momento." }
+      { h: "Caos de postulaciones masivas", p: "Cientos de CV y mensajes por correo, LinkedIn y portales. No hay tiempo de responder a todos." },
+      { h: "Filtro manual exhaustivo", p: "Horas leyendo CV y escribiendo mensajes para validar lo básico: zona, disponibilidad, pretensión." },
+      { h: "Entrevistas con perfiles que no ajustan", p: "Personas que no cumplen los requisitos y una entrevista perdida para ambas partes." }
     ],
-    solutionTitle: "La solución, paso a paso",
+    solutionTitle: "Cómo funciona, paso a paso",
     steps: {
-      vacancy: { h: "1 · Vacante", p: "Requisitos claros (excluyentes, deseables y evaluables) y un QR para el cartel." },
-      chat: { h: "2 · Chat", p: "La persona se postula conversando, una pregunta por vez y con su consentimiento." },
-      cv: { h: "3 · CV", p: "Se lee el CV y la persona confirma cada dato antes de enviarlo." },
-      score: { h: "4 · Evaluación", p: "Puntaje explicable con evidencia, y revisión humana con trazabilidad." },
-      client: { h: "5 · Cliente", p: "Informe anónimo por defecto; nombre y contacto solo con autorización." },
-      agenda: { h: "6 · Agenda", p: "La persona elige su turno por el chat, sin dobles reservas." }
+      link: { h: "1 · Enlace o QR", p: "Creás la búsqueda desde una plantilla y obtenés un enlace único o un QR para tu aviso." },
+      chat: { h: "2 · Chatbot", p: "La persona se postula conversando, una pregunta por vez y con su consentimiento." },
+      filter: { h: "3 · Filtrado", p: "Nira pregunta lo clave (zona, disponibilidad, experiencia, pretensión) y lee el CV si es un PDF con texto." },
+      ranking: { h: "4 · Ranking explicable", p: "Un Top de candidatos ordenado por grupo y puntaje, con la evidencia de cada criterio." },
+      agenda: { h: "5 · Agenda", p: "A quienes invitás, Nira les ofrece turnos y coordina la entrevista, sin dobles reservas." },
+      interview: { h: "6 · Entrevista humana", p: "Una persona entrevista a los finalistas y toma la decisión final." }
     },
-    tags: { "hoy": "Funciona hoy", "hoy*": "Hoy, en canal de prueba", "ruta": "Hoja de ruta" },
-    note: "Hoy se opera por API y con un panel simple para probar. WhatsApp real y la lectura de fotos de CV todavía no están: se muestran como pendientes."
+    tags: { "hoy": "Funciona hoy", "hoy*": "Hoy, con salvedades", "ruta": "Hoja de ruta" },
+    notes: "Salvedades: la conversación corre hoy en un canal de prueba (WhatsApp real y chat web todavía no), y los turnos son propios de Nira (la integración con Google Calendar u Outlook todavía no está).",
+    compareTitle: "Antes y con Nira",
+    compare: {
+      before: "Antes", after: "Con Nira",
+      rows: [
+        ["Preselección a mano, CV por CV", "Ranking explicable de las personas que cumplen lo pedido"],
+        ["Responder una por una las mismas preguntas", "El chatbot atiende a toda hora y recoge los datos clave"],
+        ["Idas y vueltas para coordinar horarios", "La persona elige su turno por el chat, sin dobles reservas"],
+        ["Entrevistar a perfiles que no ajustan", "Entrevistas solo con finalistas"]
+      ]
+    },
+    guardsTitle: "Cómo cuidamos la conversación",
+    guards: {
+      scope: { h: "Si preguntan algo que no sabemos, no inventamos", p: "Ante una pregunta fuera de alcance, el bot responde que esa información se verá en la entrevista y vuelve a la pregunta pendiente." },
+      cv: { h: "Si el CV falla, la charla completa los datos", p: "Si el archivo no se puede leer o la persona no lo manda, las preguntas del chat dejan registrada la información esencial." },
+      cost: { h: "Costos de WhatsApp: empezar por un camino liviano", p: "La API oficial cobra por conversación y exige plantillas. La idea es arrancar con un chat web o un proveedor intermedio hasta tener volumen." }
+    }
   },
   panel: {
     title: "Un panel para quien decide",
-    intro: "Las personas de RR. HH. ven de un vistazo quién avanza, por qué y qué falta. Esta pantalla es una maqueta; hoy existe un panel simple para probar la app.",
+    intro: "Las personas de RR. HH. ven de un vistazo quién avanza, por qué y qué falta. Esta pantalla es una maqueta; hoy existe un panel simple para probar la app, con tablero por estados y métricas.",
     tag: "Maqueta de concepto · datos ficticios",
-    mock: { brand: "Reclutamiento IA", menu: ["Vacantes", "Postulaciones", "Agenda", "Informes"], confidence: { alta: "Confianza alta", media: "Confianza media", baja: "Confianza baja" }, decider: "Lo decide una persona" },
+    mock: { brand: "Nira", menu: ["Búsquedas", "Postulaciones", "Tablero", "Métricas"], confidence: { alta: "Confianza alta", media: "Confianza media", baja: "Confianza baja" }, decider: "Lo decide una persona" },
     scaleTitle: "Una escala de colores amigable para RR. HH.",
     groups: {
       ok: { h: "Cumple los mínimos", p: "Verde azulado: listo para entrevistar." },
@@ -100,8 +120,8 @@ window.T.es = {
     kpis: { ok: "Cumplen los mínimos", rev: "Revisión manual", pen: "Falta información" }
   },
   bot: {
-    title: "El bot que postula y agenda",
-    intro: "La persona se postula chateando y, cuando la invitan, elige su turno de entrevista con un número.",
+    title: "El chatbot que postula y agenda",
+    intro: "La persona se postula chateando con Nira y, cuando la invitan, elige su turno de entrevista con un número.",
     tag: "Funciona hoy en el canal de prueba",
     chat: [
       { me: false, t: "Tu entrevista: 1) vie 23/10 10:00, 2) vie 23/10 10:30. Elegí con el número." },
@@ -116,11 +136,11 @@ window.T.es = {
       { h: "Turnos sin dobles reservas", p: "Individuales o grupales, con confirmación y recordatorio." },
       { h: "BAJA cuando quiera", p: "Libera su turno y deja de recibir mensajes." }
     ],
-    note: "Conversación de ejemplo. Con WhatsApp real hacen falta credenciales de Meta y plantillas aprobadas para avisar fuera de las 24 horas."
+    note: "Conversación de ejemplo. Con WhatsApp real hacen falta credenciales de Meta (o un proveedor intermedio) y plantillas aprobadas para avisar fuera de las 24 horas."
   },
   ai: {
     title: "IA y video, con límites claros",
-    intro: "Lo que viene después de lo que ya funciona: asistentes que proponen, nunca que deciden.",
+    intro: "Nira nace como asistente: ordena y explica; las decisiones son de personas. Lo que sigue amplía lo que ya funciona.",
     tabAi: "IA como asistente", tabVideo: "Video de presentación",
     tag: "Hoja de ruta · todavía no existe",
     items: [
@@ -146,7 +166,7 @@ window.T.es = {
   },
   report: {
     title: "Lo que ve la empresa cliente",
-    intro: "Un informe de presentación con solo lo pertinente: criterios con su evidencia, sin chat ni datos de contacto salvo autorización.",
+    intro: "Para una consultora que presenta candidatos: un informe con solo lo pertinente, con criterios y su evidencia, sin chat ni datos de contacto salvo autorización.",
     tag: "Funciona hoy · datos ficticios",
     candidates: [
       { name: "Candidato A", g: "ok", line: "Puntaje 82–91 · confianza alta. Experiencia de 2 años, confirmada por la persona." },
@@ -170,28 +190,28 @@ window.T.es = {
     note: "Los textos de consentimiento son un borrador: falta la revisión legal (Ley 25.326) antes de operar con personas reales."
   },
   roadmap: {
-    title: "De un piloto a una operación que crece",
+    title: "Por módulos, empezando por la preselección",
     intro: "Sin fechas comprometidas: dependen de las credenciales de WhatsApp, de elegir proveedor de IA y de lo que muestre el piloto.",
     status: { building: "Hoy", design: "Siguiente", idea: "Más adelante" },
     phases: {
-      p1: { name: "Fase 1 · Hoy", desc: "Vacantes, bot, evaluación explicable, informe para el cliente y agenda. Falta: panel completo, WhatsApp real y lectura de imágenes.", tags: ["API", "panel simple", "canal de prueba"] },
-      p2: { name: "Fase 2 · Video", desc: "Video de 3 preguntas de 45 segundos, alternativa escrita y transcripción con consentimiento.", tags: ["video", "consentimiento"] },
-      p3: { name: "Fase 3 · Escala", desc: "Calendarios externos, analítica y comparación de campañas, y planes con límites por cliente.", tags: ["calendarios", "analítica", "planes"] }
+      p1: { name: "Módulo 1 · Preselección", desc: "Búsquedas desde plantillas, chatbot, ranking explicable con Top 10, tablero por estados, métricas, informe para el cliente y agenda de turnos. Falta: WhatsApp real, chat web y lectura de imágenes.", tags: ["plantillas", "ranking", "agenda", "métricas"] },
+      p2: { name: "Módulo 2 · Video", desc: "Video de presentación de 3 preguntas de 45 segundos, con alternativa escrita y transcripción con consentimiento.", tags: ["video", "consentimiento"] },
+      p3: { name: "Escala", desc: "Google Calendar y Outlook, cobro por suscripción con débito automático, analítica y comparación de campañas.", tags: ["calendarios", "suscripción", "analítica"] }
     }
   },
   plans: {
-    title: "Planes: tres formas de empezar",
-    intro: "Borrador a definir con los primeros clientes. Los valores se calculan con los costos reales de WhatsApp, IA y almacenamiento.",
+    title: "Suscripción mensual: tres formas de empezar",
+    intro: "Borrador a definir con los primeros clientes: abono mensual por SaaS, con el cobro por adelantado. Los valores se calculan con los costos reales de WhatsApp, IA y almacenamiento.",
     items: [
-      { name: "Piloto", price: "[USD __ / mes]", desc: "Dos empresas, vacantes y bot de postulación, evaluación explicable y acompañamiento de arranque." },
-      { name: "Equipo", price: "[USD __ / mes]", desc: "Más empresas y vacantes, informes para el cliente, agenda de entrevistas y panel de RR. HH." },
-      { name: "Consultora", price: "[USD __ / mes]", desc: "Multiempresa con identidad visual de cada cliente, video, analítica y límites a medida." }
+      { name: "Piloto", price: "[USD __ / mes]", desc: "Una búsqueda de prueba sin costo (propuesta) para ver el ranking con datos reales, y después abono mensual." },
+      { name: "Equipo", price: "[USD __ / mes]", desc: "Más búsquedas, tablero, métricas, informes para el cliente y agenda de entrevistas." },
+      { name: "Consultora", price: "[USD __ / mes]", desc: "Varias empresas clientes con su identidad visual, video, analítica y límites a medida." }
     ]
   },
   contact: {
-    title: "Probemos con dos de tus empresas",
-    lead: "Una o dos vacantes reales de temporada, WhatsApp conectado y textos legales revisados. Después medimos tiempo de gestión y experiencia de las personas.",
-    email: "Escribir por correo", linkedin: "LinkedIn", github: "GitHub"
+    title: "Probemos Nira con una búsqueda real",
+    lead: "Una búsqueda de tu consultora o PyME, WhatsApp conectado y textos legales revisados. Después medimos cuánto tiempo se ahorra y cómo lo vive cada persona, con datos propios.",
+    note: "Dato de contacto genérico, de ejemplo."
   },
   footer: "Sitio estático con datos ficticios · no usa cookies ni envía datos: solo recuerda tu idioma y tema en este navegador"
 };
@@ -199,8 +219,8 @@ window.T.es = {
 /* ═════════════════════════════ ENGLISH ═════════════════════════════ */
 window.T.en = {
   meta: {
-    title: "Reclutamiento IA — fast, explainable and human hiring",
-    desc: "Chat applications, explainable scoring, client reports and interview scheduling for hospitality, food service and tourism."
+    title: "Nira — chatbot recruiting: AI assists, people decide",
+    desc: "Nira: a chatbot recruiting platform for HR consultancies, independent recruiters and small businesses. Candidate pre-screening, explainable ranking and interview scheduling."
   },
   ui: {
     skip: "Skip to content", menu: "Menu", lang: "Language", theme: "Theme", copy: "Copy", copied: "Copied!", top: "Back to top",
@@ -211,8 +231,8 @@ window.T.en = {
   hero: {
     badge: "Product presentation · in development",
     kicker: "Introducing",
-    role: "Fast, explainable and human hiring",
-    tagline: "A platform for recruiting firms and hospitality, food service and tourism companies: chat applications, explainable scoring and interviews with no double bookings. AI assists; people decide.",
+    role: "Agility, intelligence, closeness and efficiency",
+    tagline: "A chatbot recruiting platform for HR consultancies, independent recruiters and small businesses: people apply by chat, Nira organizes and explains the ranking, and interview scheduling takes care of itself. AI assists; people decide.",
     cta1: "See the journey", cta2: "Let's talk"
   },
   stats: {
@@ -222,31 +242,47 @@ window.T.en = {
     real: "real messages sent: everything runs in a test channel"
   },
   journey: {
-    title: "From the vacancy to the interview",
-    intro: "A complete journey, designed to hire seasonal staff without losing order or traceability.",
-    problemTitle: "The problem",
+    title: "From application chaos to the interview that matters",
+    intro: "The first module is candidate pre-screening: Nira talks to every applicant, organizes the information and hands you a ranking so you interview only the right people.",
+    problemTitle: "The challenge",
     problems: [
-      { h: "Disorganized applications", p: "Loose messages, résumés through different channels and answers that must be asked one by one." },
-      { h: "Unclear criteria", p: "It is hard to explain why one person moved on and another did not, to the client or to the person." },
-      { h: "Interviews scheduled by hand", p: "Crossed schedules, duplicated slots, forgotten appointments and last-minute cancellations." }
+      { h: "Mass application chaos", p: "Hundreds of résumés and messages by email, LinkedIn and job boards. No time to answer everyone." },
+      { h: "Exhaustive manual screening", p: "Hours reading résumés and writing messages just to check the basics: location, availability, salary expectation." },
+      { h: "Interviews with profiles that do not fit", p: "People who do not meet the requirements, and a wasted interview for both sides." }
     ],
-    solutionTitle: "The solution, step by step",
+    solutionTitle: "How it works, step by step",
     steps: {
-      vacancy: { h: "1 · Vacancy", p: "Clear requirements (knockout, desirable and scored) and a QR code for the poster." },
-      chat: { h: "2 · Chat", p: "People apply by chatting, one question at a time and with their consent." },
-      cv: { h: "3 · Résumé", p: "The résumé is read and the person confirms every detail before sending it." },
-      score: { h: "4 · Scoring", p: "An explainable score backed by evidence, with traceable human review." },
-      client: { h: "5 · Client", p: "A report that is anonymous by default; name and contact only with authorization." },
-      agenda: { h: "6 · Scheduling", p: "The person picks a slot in the chat, with no double bookings." }
+      link: { h: "1 · Link or QR", p: "You create the search from a template and get a unique link or QR code for your ad." },
+      chat: { h: "2 · Chatbot", p: "People apply by chatting, one question at a time and with their consent." },
+      filter: { h: "3 · Screening", p: "Nira asks the key questions (location, availability, experience, salary expectation) and reads the résumé if it is a text PDF." },
+      ranking: { h: "4 · Explainable ranking", p: "A shortlist ordered by group and score, with the evidence behind every criterion." },
+      agenda: { h: "5 · Scheduling", p: "For the people you invite, Nira offers time slots and arranges the interview, with no double bookings." },
+      interview: { h: "6 · Human interview", p: "A person interviews the finalists and makes the final decision." }
     },
-    tags: { "hoy": "Works today", "hoy*": "Today, in the test channel", "ruta": "Roadmap" },
-    note: "Today it runs through an API and a simple panel for testing. Real WhatsApp and reading résumé photos are not there yet: they are shown as pending."
+    tags: { "hoy": "Works today", "hoy*": "Today, with caveats", "ruta": "Roadmap" },
+    notes: "Caveats: the conversation runs today in a test channel (real WhatsApp and web chat are not there yet), and the time slots are Nira's own (Google Calendar or Outlook integration is not there yet).",
+    compareTitle: "Before and with Nira",
+    compare: {
+      before: "Before", after: "With Nira",
+      rows: [
+        ["Screening by hand, résumé by résumé", "An explainable ranking of the people who meet the requirements"],
+        ["Answering the same questions one by one", "The chatbot answers any time and collects the key data"],
+        ["Back-and-forth to agree on times", "The person picks a slot in the chat, with no double bookings"],
+        ["Interviewing profiles that do not fit", "Interviews only with finalists"]
+      ]
+    },
+    guardsTitle: "How we look after the conversation",
+    guards: {
+      scope: { h: "If they ask something we do not know, we do not make it up", p: "For an out-of-scope question, the bot says that information will come up in the interview and goes back to the pending question." },
+      cv: { h: "If the résumé fails, the chat fills the gaps", p: "If the file cannot be read or the person does not send one, the chat questions record the essential information." },
+      cost: { h: "WhatsApp costs: start with a lighter path", p: "The official API charges per conversation and requires templates. The plan is to start with a web chat or an intermediary provider until there is volume." }
+    }
   },
   panel: {
     title: "A panel for those who decide",
-    intro: "HR people see at a glance who moves forward, why and what is missing. This screen is a mockup; today there is a simple panel to try the app.",
+    intro: "HR people see at a glance who moves forward, why and what is missing. This screen is a mockup; today there is a simple panel to try the app, with a status board and metrics.",
     tag: "Concept mockup · fictional data",
-    mock: { brand: "Reclutamiento IA", menu: ["Vacancies", "Applications", "Schedule", "Reports"], confidence: { alta: "High confidence", media: "Medium confidence", baja: "Low confidence" }, decider: "A person decides" },
+    mock: { brand: "Nira", menu: ["Searches", "Applications", "Board", "Metrics"], confidence: { alta: "High confidence", media: "Medium confidence", baja: "Low confidence" }, decider: "A person decides" },
     scaleTitle: "A color scale that is friendly for HR",
     groups: {
       ok: { h: "Meets the minimums", p: "Teal: ready to interview." },
@@ -268,8 +304,8 @@ window.T.en = {
     kpis: { ok: "Meet the minimums", rev: "Manual review", pen: "Information missing" }
   },
   bot: {
-    title: "The bot that applies and schedules",
-    intro: "People apply by chatting and, once invited, pick their interview slot with a number.",
+    title: "The chatbot that applies and schedules",
+    intro: "People apply by chatting with Nira and, once invited, pick their interview slot with a number.",
     tag: "Works today in the test channel",
     chat: [
       { me: false, t: "Your interview: 1) Fri 23/10 10:00, 2) Fri 23/10 10:30. Reply with the number." },
@@ -284,11 +320,11 @@ window.T.en = {
       { h: "No double bookings", p: "Individual or group, with confirmation and a reminder." },
       { h: "Opt out any time", p: "It frees the slot and stops all messages." }
     ],
-    note: "Sample conversation. Real WhatsApp needs Meta credentials and approved templates to message people after the 24-hour window. The bot's commands are in Spanish today."
+    note: "Sample conversation. Real WhatsApp needs Meta credentials (or an intermediary provider) and approved templates to message people after the 24-hour window. The bot's commands are in Spanish today."
   },
   ai: {
     title: "AI and video, with clear limits",
-    intro: "What comes after what already works: assistants that suggest, never ones that decide.",
+    intro: "Nira is built as an assistant: it organizes and explains; people decide. What comes next extends what already works.",
     tabAi: "AI as an assistant", tabVideo: "Video introduction",
     tag: "Roadmap · does not exist yet",
     items: [
@@ -314,7 +350,7 @@ window.T.en = {
   },
   report: {
     title: "What the client company sees",
-    intro: "A presentation report with only what is relevant: criteria with their evidence, and no chat or contact details unless authorized.",
+    intro: "For a consultancy presenting candidates: a report with only what is relevant, criteria with their evidence, and no chat or contact details unless authorized.",
     tag: "Works today · fictional data",
     candidates: [
       { name: "Candidate A", g: "ok", line: "Score 82–91 · high confidence. 2 years of experience, confirmed by the person." },
@@ -338,28 +374,28 @@ window.T.en = {
     note: "The consent texts are a draft: they need legal review (Argentine Law 25.326) before operating with real people."
   },
   roadmap: {
-    title: "From a pilot to an operation that grows",
+    title: "By modules, starting with pre-screening",
     intro: "No committed dates: they depend on WhatsApp credentials, choosing an AI provider and what the pilot shows.",
     status: { building: "Today", design: "Next", idea: "Later" },
     phases: {
-      p1: { name: "Phase 1 · Today", desc: "Vacancies, bot, explainable scoring, client report and scheduling. Missing: a full panel, real WhatsApp and image reading.", tags: ["API", "simple panel", "test channel"] },
-      p2: { name: "Phase 2 · Video", desc: "Video with 3 questions of 45 seconds, a written alternative and transcription with consent.", tags: ["video", "consent"] },
-      p3: { name: "Phase 3 · Scale", desc: "External calendars, analytics and campaign comparison, and plans with per-client limits.", tags: ["calendars", "analytics", "plans"] }
+      p1: { name: "Module 1 · Pre-screening", desc: "Searches from templates, chatbot, explainable ranking with a Top 10, status board, metrics, client report and slot scheduling. Missing: real WhatsApp, web chat and image reading.", tags: ["templates", "ranking", "scheduling", "metrics"] },
+      p2: { name: "Module 2 · Video", desc: "Video introduction with 3 questions of 45 seconds, a written alternative and transcription with consent.", tags: ["video", "consent"] },
+      p3: { name: "Scale", desc: "Google Calendar and Outlook, subscription billing with automatic debit, analytics and campaign comparison.", tags: ["calendars", "subscription", "analytics"] }
     }
   },
   plans: {
-    title: "Plans: three ways to start",
-    intro: "A draft to define with the first clients. Prices are calculated from the real costs of WhatsApp, AI and storage.",
+    title: "Monthly subscription: three ways to start",
+    intro: "A draft to define with the first clients: a monthly SaaS fee, paid in advance. Prices are calculated from the real costs of WhatsApp, AI and storage.",
     items: [
-      { name: "Pilot", price: "[USD __ / month]", desc: "Two companies, vacancies and application bot, explainable scoring and onboarding support." },
-      { name: "Team", price: "[USD __ / month]", desc: "More companies and vacancies, client reports, interview scheduling and an HR panel." },
-      { name: "Agency", price: "[USD __ / month]", desc: "Multi-company with each client's branding, video, analytics and tailored limits." }
+      { name: "Pilot", price: "[USD __ / month]", desc: "One free trial search (proposal) to see the ranking with real data, then a monthly fee." },
+      { name: "Team", price: "[USD __ / month]", desc: "More searches, status board, metrics, client reports and interview scheduling." },
+      { name: "Agency", price: "[USD __ / month]", desc: "Several client companies with their own branding, video, analytics and tailored limits." }
     ]
   },
   contact: {
-    title: "Let's try it with two of your companies",
-    lead: "One or two real seasonal vacancies, WhatsApp connected and legal texts reviewed. Then we measure handling time and the candidate experience.",
-    email: "Send an email", linkedin: "LinkedIn", github: "GitHub"
+    title: "Let's try Nira on a real search",
+    lead: "One search from your consultancy or business, WhatsApp connected and legal texts reviewed. Then we measure how much time is saved and how each person experiences it, with your own data.",
+    note: "Generic sample contact detail."
   },
   footer: "Static site with fictional data · no cookies and no data sent: it only remembers your language and theme in this browser"
 };

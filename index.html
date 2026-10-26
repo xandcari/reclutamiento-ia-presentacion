@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reclutamiento IA — selección ágil, explicable y humana</title>
-  <meta name="description" content="Reclutamiento IA: postulación por chat, evaluación explicable, informes para el cliente y agenda de entrevistas para gastronomía, hotelería y turismo.">
+  <title>Nira — reclutamiento con chatbot: la IA asiste, las decisiones son de personas</title>
+  <meta name="description" content="Nira: plataforma de reclutamiento con chatbot para consultoras de RR. HH., reclutadores y PyMEs. Preselección de perfiles, ranking explicable y agenda de entrevistas.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#0F2540">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Reclutamiento IA">
-  <meta property="og:description" content="Selección ágil, explicable y humana.">
+  <meta property="og:title" content="Nira">
+  <meta property="og:description" content="La IA asiste, las decisiones son de personas.">
   <script>/* tema inicial antes de pintar: el guardado por la persona o, la primera vez, claro */
     try { var t = localStorage.getItem("ri-theme"); document.documentElement.setAttribute("data-theme", ["light", "dark", "rose", "cream"].indexOf(t) > -1 ? t : "light"); } catch (e) {}
   </script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2540'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23C9E86B'%3ERI%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2540'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23C9E86B'%3ENI%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="producto.css">
@@ -29,7 +29,7 @@
         <button type="button" class="rail-toggle" id="railToggle" aria-expanded="false" aria-controls="rail" aria-label="Menú" data-i18n-attr="aria-label:ui.menu">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
-        <a class="rail-brand" href="#home" aria-label="Reclutamiento IA"><span class="brand-mark" aria-hidden="true">RI</span><span class="rl-label">Reclutamiento IA</span></a>
+        <a class="rail-brand" href="#home" aria-label="Nira"><span class="brand-mark" aria-hidden="true">NI</span><span class="rl-label">Nira</span></a>
       </div>
 
       <nav class="rail-nav" id="nav" aria-label="Principal">
@@ -85,8 +85,8 @@
         <button type="button" class="rail-toggle" id="railOpen" aria-label="Menú" data-i18n-attr="aria-label:ui.menu">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
-        <span class="brand-mark" aria-hidden="true">RI</span>
-        <strong class="topbar-title">Reclutamiento IA</strong>
+        <span class="brand-mark" aria-hidden="true">NI</span>
+        <strong class="topbar-title">Nira</strong>
       </header>
 
       <main id="main" tabindex="-1">
@@ -97,7 +97,7 @@
             <div class="hero-copy">
               <p class="badge"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.badge"></span></p>
               <p class="kicker" data-i18n="hero.kicker"></p>
-              <h1 id="heroName">Reclutamiento IA</h1>
+              <h1 id="heroName">Nira</h1>
               <p class="role" data-i18n="hero.role"></p>
               <p class="tagline" data-i18n="hero.tagline"></p>
               <div class="cta-row">
@@ -120,7 +120,11 @@
           <div class="project-grid" id="problemGrid"></div>
           <h3 class="subtitle" data-i18n="journey.solutionTitle"></h3>
           <div class="project-grid" id="stepGrid"></div>
-          <p class="note" data-i18n="journey.note"></p>
+          <p class="note" data-i18n="journey.notes"></p>
+          <h3 class="subtitle" id="compareTitle"></h3>
+          <div class="compare" id="compare" role="table"></div>
+          <h3 class="subtitle" id="guardsTitle"></h3>
+          <div class="project-grid" id="guardGrid"></div>
         </section>
 
         <!-- PANEL Y COLORES -->
@@ -203,17 +207,13 @@
             <h2 class="section-title on-dark" id="contactTitle" data-i18n="contact.title"></h2>
             <p class="contact-lead" data-i18n="contact.lead"></p>
             <p class="mail-line"><span class="mail-text" id="mailText"></span><button type="button" class="copy-btn" id="copyMail" data-i18n="ui.copy">Copiar</button></p>
-            <div class="cta-row">
-              <a class="btn btn-accent" id="mailLink" href="#" data-i18n="contact.email"></a>
-              <a class="btn btn-outline" id="inLink" href="#" target="_blank" rel="noopener" data-i18n="contact.linkedin"></a>
-              <a class="btn btn-outline" id="ghLink" href="#" target="_blank" rel="noopener" data-i18n="contact.github"></a>
-            </div>
+            <p class="fine" data-i18n="contact.note"></p>
           </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <p>© <span id="year"></span> Carina Alejandra Luna · <span data-i18n="footer"></span></p>
+        <p>© <span id="year"></span> Nira · <span data-i18n="footer"></span></p>
       </footer>
     </div>
   </div>
@@ -222,7 +222,7 @@
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
-  <noscript><p style="padding:1rem;text-align:center">Reclutamiento IA — presentación del producto. Esta página necesita JavaScript.</p></noscript>
+  <noscript><p style="padding:1rem;text-align:center">Nira — presentación del producto. Esta página necesita JavaScript.</p></noscript>
 
   <script>/* si un archivo del sitio no carga (falla pasajera de la red), se reintenta una sola vez */
     window.addEventListener("error", function (e) {

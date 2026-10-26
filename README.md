@@ -1,11 +1,12 @@
-# Reclutamiento IA · presentación del producto
+# Nira · presentación del producto
 
-Sitio estático (HTML, CSS y JavaScript, sin build ni dependencias) que presenta la plataforma de selección de personal
-**Reclutamiento IA**: recorrido, panel y escala de colores, bot y agenda, IA y video, informe para el cliente, hoja de ruta y planes.
+Sitio estático (HTML, CSS y JavaScript, sin build ni dependencias) que presenta **Nira**, una plataforma de reclutamiento con chatbot para consultoras de RR. HH.,
+reclutadores independientes y PyMEs: recorrido, panel y escala de colores, chatbot y agenda, IA y video, informe para el cliente, hoja de ruta y planes por suscripción.
 Está en español e inglés (`?lang=en`), con barra lateral y cuatro temas.
 
 **Es una presentación con datos ficticios.** Cada pieza dice si funciona hoy, si funciona en un canal de prueba o si es una maqueta o hoja de ruta.
-Los precios de los planes están sin definir (`[USD __]`).
+Los precios de los planes están sin definir (`[USD __]`). **No figuran cifras de ahorro de tiempo ni de preferencia de las personas**: no se midieron; el sitio propone medirlas en un piloto.
+El nombre y el dominio de Nira están en definición y no se verificó que estén disponibles.
 
 ## Cómo verlo
 
