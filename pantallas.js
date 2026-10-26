@@ -266,11 +266,10 @@
     m.appendChild(s(h("h2", "", c.title)));
     m.appendChild(s(h("p", "sub", c.sub)));
     var fila = h("div", "m-botones");
-    fila.appendChild(s(h("a", "btn-m lima", c.correo, { href: "mailto:" + window.DATA.email })));
-    fila.appendChild(s(h("a", "btn-m borde", c.sitio, { href: "index.html#journey" })));
+    fila.appendChild(s(h("a", "btn-m lima", c.sitio, { href: "index.html#journey" })));
     fila.appendChild(s(h("button", "btn-m borde", c.reiniciar, { type: "button", "data-accion": "inicio" })));
     m.appendChild(fila);
-    m.appendChild(s(h("p", "nota-m", window.DATA.email)));
+    m.appendChild(s(h("p", "nota-m", window.DATA.email + " · " + c.nota)));
   };
 
   window.CONSTRUIR = function (id, marco, lang) {

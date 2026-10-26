@@ -121,7 +121,7 @@ window.P.es = {
   },
   cierre: {
     title: "Probemos Nira con una búsqueda real", sub: "Una búsqueda de tu consultora o PyME, WhatsApp conectado y textos legales revisados. Después medimos el ahorro de tiempo con datos propios.",
-    correo: "Escribir por correo", sitio: "Ver el sitio completo", reiniciar: "Volver al inicio"
+    nota: "Dato de contacto genérico, de ejemplo.", sitio: "Ver el sitio completo", reiniciar: "Volver al inicio"
   }
 };
 
@@ -218,6 +218,6 @@ window.P.en = {
   },
   cierre: {
     title: "Let's try Nira on a real search", sub: "One search from your consultancy or business, WhatsApp connected and legal texts reviewed. Then we measure time saved with your own data.",
-    correo: "Send an email", sitio: "See the full site", reiniciar: "Back to the start"
+    nota: "Generic sample contact detail.", sitio: "See the full site", reiniciar: "Back to the start"
   }
 };
