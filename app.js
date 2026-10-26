@@ -219,8 +219,6 @@
 
   function renderLinks() {
     var d = window.DATA;
-    var map = { "#mailLink": "mailto:" + d.email, "#inLink": d.linkedin, "#ghLink": d.github };
-    Object.keys(map).forEach(function (sel) { var n = $(sel); if (n) n.href = map[sel]; });
     $("#mailText").textContent = d.email;
   }
 

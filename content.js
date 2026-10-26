@@ -1,9 +1,7 @@
 /* Datos fijos y textos del sitio, en español e inglés. Todo lo que aparece en pantallas de ejemplo son datos FICTICIOS.
    Las cifras de ahorro de tiempo o de preferencia de las personas NO figuran: no se midieron. */
 window.DATA = {
-  email: "caricariluna@gmail.com",
-  linkedin: "https://www.linkedin.com/in/carina-alejandra-luna",
-  github: "https://github.com/xandcari",
+  email: "contacto@ejemplo.com",   // dato genérico de ejemplo: reemplazar por el de contacto real antes de usarlo con clientes
   stats: [
     { id: "tests", n: 807 },
     { id: "groups", n: 4 },
@@ -213,7 +211,7 @@ window.T.es = {
   contact: {
     title: "Probemos Nira con una búsqueda real",
     lead: "Una búsqueda de tu consultora o PyME, WhatsApp conectado y textos legales revisados. Después medimos cuánto tiempo se ahorra y cómo lo vive cada persona, con datos propios.",
-    email: "Escribir por correo", linkedin: "LinkedIn", github: "GitHub"
+    note: "Dato de contacto genérico, de ejemplo."
   },
   footer: "Sitio estático con datos ficticios · no usa cookies ni envía datos: solo recuerda tu idioma y tema en este navegador"
 };
@@ -397,7 +395,7 @@ window.T.en = {
   contact: {
     title: "Let's try Nira on a real search",
     lead: "One search from your consultancy or business, WhatsApp connected and legal texts reviewed. Then we measure how much time is saved and how each person experiences it, with your own data.",
-    email: "Send an email", linkedin: "LinkedIn", github: "GitHub"
+    note: "Generic sample contact detail."
   },
   footer: "Static site with fictional data · no cookies and no data sent: it only remembers your language and theme in this browser"
 };
