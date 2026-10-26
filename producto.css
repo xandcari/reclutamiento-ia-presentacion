@@ -98,6 +98,16 @@
 .rcard h3 { font-size: 1.15rem; font-weight: 800; }
 .rcard p { color: var(--muted); font-size: .95rem; }
 
+.compare { display: grid; gap: .5rem; }
+.crow2 { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.crow2 span { padding: .7rem 1rem; border-radius: 12px; font-size: .96rem; }
+.crow2.head span { font-weight: 800; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; padding-block: .2rem; }
+.crow2.head span:first-child { color: var(--muted); }
+.crow2.head span:last-child { color: var(--teal); }
+.crow2 .before { background: var(--surface-2); color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 50%, transparent); }
+.crow2 .after { background: var(--teal-soft); font-weight: 600; }
+@media (max-width: 640px) { .crow2 { grid-template-columns: 1fr; } .crow2.head { display: none; } }
+
 .card .price { color: var(--teal); font-weight: 800; font-size: 1.15rem; }
 
 @media (max-width: 860px) {
