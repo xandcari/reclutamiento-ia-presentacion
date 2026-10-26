@@ -51,7 +51,7 @@ window.T.es = {
     kicker: "Presentamos",
     role: "Agilidad, inteligencia, cercanía y eficiencia",
     tagline: "Plataforma de reclutamiento con chatbot para consultoras de RR. HH., reclutadores independientes y PyMEs: la persona se postula por chat, Nira ordena y explica el ranking, y la agenda de entrevistas se coordina sola. La IA asiste; las decisiones son de personas.",
-    cta1: "Ver el recorrido", cta2: "Hablemos"
+    cta1: "Ver el recorrido", cta2: "Hablemos", cta3: "Presentación interactiva"
   },
   stats: {
     tests: "pruebas automáticas que pasan",
@@ -235,7 +235,7 @@ window.T.en = {
     kicker: "Introducing",
     role: "Agility, intelligence, closeness and efficiency",
     tagline: "A chatbot recruiting platform for HR consultancies, independent recruiters and small businesses: people apply by chat, Nira organizes and explains the ranking, and interview scheduling takes care of itself. AI assists; people decide.",
-    cta1: "See the journey", cta2: "Let's talk"
+    cta1: "See the journey", cta2: "Let's talk", cta3: "Interactive presentation"
   },
   stats: {
     tests: "automated tests passing",
