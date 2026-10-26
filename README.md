@@ -14,6 +14,10 @@ El nombre y el dominio de Nira están en definición y no se verificó que esté
 
 Se maneja con las flechas o la barra espaciadora, tocando un cuadro o los puntos del recorrido, deslizando en el celular, `O` para la vista general y `F` para pantalla completa. Se puede abrir en un cuadro con `#/N` (por ejemplo `#/7`) y en inglés con `?lang=en`. Los archivos son `presentacion.html`, `presentacion.css`, `presentacion.js` (cámara y navegación), `presentacion-content.js` (mapa del lienzo y textos), `pantallas.js` y `pantallas.css` (las pantallas de ejemplo).
 
+## PowerPoint
+
+`descargas/Nira-presentacion.pptx` es una versión en PowerPoint de las mismas 17 paradas (texto, sin las pantallas de ejemplo), pensada para importarla en Prezi u otra herramienta. Usa datos ficticios y un contacto genérico.
+
 ## Cómo verlo
 
 Abrir `index.html`, o con cualquier servidor estático: `python -m http.server`.
