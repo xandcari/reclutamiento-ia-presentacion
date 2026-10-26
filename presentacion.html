@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nira — presentación interactiva</title>
+  <meta name="description" content="Recorrido interactivo por Nira: plataforma de reclutamiento con chatbot. Zoom entre pantallas, con datos ficticios.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#0F2540">
+  <script>/* tema inicial antes de pintar */
+    try { var t = localStorage.getItem("ri-theme"); document.documentElement.setAttribute("data-theme", ["light", "dark", "rose", "cream"].indexOf(t) > -1 ? t : "light"); } catch (e) {}
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2540'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23C9E86B'%3ENI%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="producto.css">
+  <link rel="stylesheet" href="pantallas.css">
+  <link rel="stylesheet" href="presentacion.css">
+</head>
+<body class="pres">
+  <a class="skip" href="#escenario" data-i18n="ui.skip">Ir al contenido</a>
+
+  <div class="escenario" id="escenario" tabindex="-1" aria-label="Presentación interactiva" role="region" aria-roledescription="presentación">
+    <div class="lienzo" id="lienzo"></div>
+  </div>
+
+  <header class="barra-sup">
+    <a class="marca" href="index.html#home" aria-label="Nira"><span class="brand-mark" aria-hidden="true">NI</span><span class="marca-txt">Nira</span></a>
+    <div class="acciones">
+      <div class="lang" role="group" aria-label="Idioma" id="langSwitch">
+        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="ctl" id="btnTema" data-i18n-attr="aria-label:ui.theme"><span class="sw sw-light" id="themeDot" aria-hidden="true"></span></button>
+      <button type="button" class="ctl" id="btnGeneral" aria-pressed="false" data-i18n="ui.overview">Vista general</button>
+      <button type="button" class="ctl" id="btnPantalla" data-i18n="ui.fullscreen">Pantalla completa</button>
+      <a class="ctl" href="index.html#journey" data-i18n="ui.site">Ver el sitio</a>
+    </div>
+  </header>
+
+  <footer class="barra-inf">
+    <button type="button" class="ctl redondo" id="btnPrev" data-i18n-attr="aria-label:ui.prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <div class="camino" id="camino" role="tablist" data-i18n-attr="aria-label:ui.path" aria-label="Recorrido"></div>
+    <button type="button" class="ctl redondo" id="btnNext" data-i18n-attr="aria-label:ui.next" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <p class="estado" id="estado" aria-live="polite"></p>
+  </footer>
+
+  <p class="ayuda" id="ayuda" data-i18n="ui.hint"></p>
+
+  <noscript><p style="padding:1rem;text-align:center">Nira — presentación interactiva. Esta página necesita JavaScript.</p></noscript>
+  <script src="content.js"></script>
+  <script src="presentacion-content.js"></script>
+  <script src="pantallas.js"></script>
+  <script src="presentacion.js"></script>
+</body>
+</html>
